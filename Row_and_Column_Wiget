@@ -1,0 +1,48 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        drawer: Drawer(),
+        appBar: AppBar(
+          title: Text("Row And Column"),
+          backgroundColor: Colors.amber,
+          elevation: 30,
+        ),
+        // body: Row(
+        //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        //   children: [
+        //     Text(
+        //       "row 1",
+        //       style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+        //     ),
+        //     Text(
+        //       "row 2",
+        //       style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+        //     ),
+        //     Text(
+        //       "row 3",
+        //       style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+        //     ),
+        //   ],
+        // ),
+        //
+        body:
+            Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+          Text("Column 1",
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
+          Text("Column 2",
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
+          Text("Column 3",
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
+        ]),
+      ),
+    );
+  }
+}
