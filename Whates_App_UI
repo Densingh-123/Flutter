@@ -1,0 +1,182 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(const MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        drawer: const Drawer(),
+        appBar: AppBar(
+          title: const Text("WhatsApp"),
+          backgroundColor: Color(0xff075e54),
+          elevation: 30,
+        ),
+        body: ListView(
+          children: const [
+            ChatTile(
+                name: "Densingh",
+                message: "Hi, How Are You",
+                time: "09:45 AM",
+                profileUrl: "https://randomuser.me/api/portraits/men/1.jpg"),
+            ChatTile(
+                name: "Joe",
+                message: "Have you studied JAVA?",
+                time: "Yesterday",
+                profileUrl: "https://randomuser.me/api/portraits/men/2.jpg"),
+            ChatTile(
+                name: "Thor",
+                message: "Hi, Thanos!",
+                time: "Sunday",
+                profileUrl: "https://randomuser.me/api/portraits/men/3.jpg"),
+            ChatTile(
+                name: "Tony",
+                message: "Call me when free.",
+                time: "10:30 AM",
+                profileUrl: "https://randomuser.me/api/portraits/men/4.jpg"),
+            ChatTile(
+                name: "Steve",
+                message: "Meeting at 2 PM",
+                time: "08:10 AM",
+                profileUrl: "https://randomuser.me/api/portraits/men/5.jpg"),
+            ChatTile(
+                name: "Bruce",
+                message: "Where are you?",
+                time: "09:00 AM",
+                profileUrl: "https://randomuser.me/api/portraits/men/6.jpg"),
+            ChatTile(
+                name: "Natasha",
+                message: "I'm on the way!",
+                time: "Today",
+                profileUrl: "https://randomuser.me/api/portraits/women/7.jpg"),
+            ChatTile(
+                name: "Peter",
+                message: "Homework done?",
+                time: "Yesterday",
+                profileUrl: "https://randomuser.me/api/portraits/men/8.jpg"),
+            ChatTile(
+                name: "Wanda",
+                message: "Let's catch up",
+                time: "06:55 PM",
+                profileUrl: "https://randomuser.me/api/portraits/women/9.jpg"),
+            ChatTile(
+                name: "Vision",
+                message: "Just checking in.",
+                time: "11:30 AM",
+                profileUrl: "https://randomuser.me/api/portraits/men/10.jpg"),
+            ChatTile(
+                name: "Clint",
+                message: "See you tomorrow.",
+                time: "10:45 AM",
+                profileUrl: "https://randomuser.me/api/portraits/men/11.jpg"),
+            ChatTile(
+                name: "Loki",
+                message: "Come to Asgard.",
+                time: "Yesterday",
+                profileUrl: "https://randomuser.me/api/portraits/men/12.jpg"),
+            ChatTile(
+                name: "Strange",
+                message: "Multiverse trouble!",
+                time: "Sunday",
+                profileUrl: "https://randomuser.me/api/portraits/men/13.jpg"),
+            ChatTile(
+                name: "Shuri",
+                message: "Tech update ready",
+                time: "Monday",
+                profileUrl: "https://randomuser.me/api/portraits/women/14.jpg"),
+            ChatTile(
+                name: "T'Challa",
+                message: "Wakanda forever!",
+                time: "Friday",
+                profileUrl: "https://randomuser.me/api/portraits/men/15.jpg"),
+            ChatTile(
+                name: "Scott",
+                message: "Shrunk again 😂",
+                time: "Today",
+                profileUrl: "https://randomuser.me/api/portraits/men/16.jpg"),
+            ChatTile(
+                name: "Hope",
+                message: "See you soon",
+                time: "Yesterday",
+                profileUrl: "https://randomuser.me/api/portraits/women/17.jpg"),
+            ChatTile(
+                name: "Gamora",
+                message: "Meet me at Xandar",
+                time: "Friday",
+                profileUrl: "https://randomuser.me/api/portraits/women/18.jpg"),
+            ChatTile(
+                name: "Rocket",
+                message: "Where’s Groot?",
+                time: "Today",
+                profileUrl: "https://randomuser.me/api/portraits/men/19.jpg"),
+            ChatTile(
+                name: "Groot",
+                message: "I am Groot 🌱",
+                time: "Just now",
+                profileUrl: "https://randomuser.me/api/portraits/men/20.jpg"),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class ChatTile extends StatelessWidget {
+  final String name;
+  final String message;
+  final String time;
+  final String profileUrl;
+
+  const ChatTile({
+    super.key,
+    required this.name,
+    required this.message,
+    required this.time,
+    required this.profileUrl,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        ListTile(
+          contentPadding:
+              const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          leading: CircleAvatar(
+            backgroundImage: NetworkImage(profileUrl),
+            radius: 28,
+          ),
+          title: Text(
+            name,
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+          ),
+          subtitle: Text(
+            message,
+            style: const TextStyle(color: Colors.grey),
+          ),
+          trailing: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                time,
+                style: const TextStyle(fontSize: 12, color: Colors.grey),
+              ),
+              const SizedBox(height: 4),
+              const Icon(
+                Icons.done_all,
+                color: Colors.blue,
+                size: 18,
+              )
+            ],
+          ),
+        ),
+        const Divider(indent: 80, thickness: 0.5),
+      ],
+    );
+  }
+}
