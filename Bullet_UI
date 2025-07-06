@@ -1,0 +1,138 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(const MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: "Royal Enfield UI",
+      home: Scaffold(
+        backgroundColor: Colors.grey[100],
+        body: SafeArea(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              children: [
+                Center(
+                  child: Image.network(
+                    "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Royal_Enfield_logo_new.svg/2560px-Royal_Enfield_logo_new.svg.png",
+                    height: 80,
+                  ),
+                ),
+                const SizedBox(height: 20),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(15),
+                  child: Image.network(
+                    "https://apnamechanic.com/blog/wp-content/uploads/2022/06/bullet-service-online-1024x683-1.jpg",
+                    height: 200,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Text(
+                  "Classic 500",
+                  style: TextStyle(
+                    fontSize: 32,
+                    fontWeight: FontWeight.bold,
+                    fontStyle: FontStyle.italic,
+                    color: Colors.black87,
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  "Specifications",
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.redAccent,
+                    letterSpacing: 1.2,
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    buildSpecCard(
+                      "https://images.drivespark.com/img/2016/09/19-1474291304-royal-enfield-working-on-new-engines-4.jpg",
+                      "373 cc",
+                    ),
+                    buildSpecCard(
+                      "https://www.shutterstock.com/image-photo/modern-light-car-mileage-dashboard-260nw-1507535849.jpg",
+                      "24 km/l",
+                    ),
+                    buildSpecCard(
+                      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2AvIKIpuc0oQ2NNbtev5levxA1sSjF04gv55OurSrBSo2Xvbnn3skbtf2Y7CPn5kPdRE&usqp=CAU",
+                      "45 ps",
+                    ),
+                    buildSpecCard(
+                      "https://rukminim2.flixcart.com/image/850/1000/jtsz3bk0/bike-lock/k/b/f/heavy-duty-disc-brake-lock-trp-traders-original-imaff2kzxfpfdhuf.jpeg?q=90&crop=false",
+                      "Disk",
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 30),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(15),
+                  child: Image.network(
+                    "https://images.hindustantimes.com/auto/img/2024/02/03/414x233/2023_Royal_Enfield_Bullet_350_1693620256587_1706956144033.png",
+                    height: 150,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget buildSpecCard(String img, String label) {
+    return Container(
+      height: 100,
+      width: 75,
+      padding: const EdgeInsets.all(6),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        border: Border.all(color: Colors.redAccent, width: 2),
+        borderRadius: BorderRadius.circular(15),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.redAccent.withOpacity(0.1),
+            blurRadius: 6,
+            offset: Offset(0, 4),
+          )
+        ],
+      ),
+      child: Column(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(8),
+            child: Image.network(
+              img,
+              height: 50,
+              width: double.infinity,
+              fit: BoxFit.cover,
+            ),
+          ),
+          const SizedBox(height: 6),
+          Text(
+            label,
+            style: const TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.bold,
+              color: Colors.black87,
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ],
+      ),
+    );
+  }
+}
