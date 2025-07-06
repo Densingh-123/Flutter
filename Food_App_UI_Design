@@ -1,0 +1,140 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(const MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        body: Column(children: [
+          Container(
+              height: 380,
+              width: double.infinity,
+              //color: Colors.amber,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    height: 380,
+                    width: 290,
+                    decoration: BoxDecoration(
+                        color: Colors.black,
+                        image: DecorationImage(
+                            image: NetworkImage(
+                                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrEO9UmcU0LK3-AHCo30JgV8xyoyVtDDL4tHv6mC1zapRdNeBNU8t-ZZUZ9XJNGI1bZSM&usqp=CAU"),
+                            fit: BoxFit.fill),
+                        borderRadius: BorderRadius.only(
+                            bottomRight: Radius.circular(105))),
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      buildCircleAvatar(
+                          "https://www.allrecipes.com/thmb/ygY1JXP8_IkDSjPPW5VH2dTiMMU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/50347-indian-tandoori-chicken-DDMFS-4x3-3035-205e98c80b2f4275b5bd010c396d9149.jpg"),
+                      buildCircleAvatar(
+                          "https://static.toiimg.com/thumb/53240689.cms?width=1200&height=900"),
+                      buildCircleAvatar(
+                          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQirVVW_ly81RF91v5ZxlW4Nn1EmA2J1zDnR9mLlZo73kr3EkjWcdZ3qrFmh2VMVeND55Q&usqp=CAU"),
+                    ],
+                  )
+                ],
+              )),
+          //Chicken Name
+          SizedBox(
+            height: 10,
+          ),
+          Text(
+            "Grilled Tandoori Chicken",
+            style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Text(
+              "Flavored by a yogurt and spice paste boasting ginger, cumin, and coriander, this chicken is reminiscent of ones cooked in a tandoor oven. For this version, we remove the chicken skin and score the flesh so that the spice paste penetrates the meat.",
+              textAlign: TextAlign.justify,
+              style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                  fontStyle: FontStyle.italic),
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Container(
+                height: 70,
+                width: 100,
+                child: Center(
+                  child: Text(
+                    "\$. 250",
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
+                  ),
+                ),
+                decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(15)),
+              ),
+              Container(
+                height: 70,
+                width: 100,
+                child: Center(
+                  child: Text(
+                    "1 + 1",
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
+                  ),
+                ),
+                decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(15)),
+              ),
+              Container(
+                height: 70,
+                width: 100,
+                child: Center(
+                    child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "+ 5 ",
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
+                    ),
+                    Icon(
+                      Icons.star,
+                      color: Colors.amber,
+                    )
+                  ],
+                )),
+                decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(15)),
+              ),
+            ],
+          )
+        ]),
+      ),
+    );
+  }
+
+  CircleAvatar buildCircleAvatar(img) {
+    return CircleAvatar(
+      backgroundColor: Colors.black,
+      radius: 45,
+      child: CircleAvatar(
+        backgroundImage: NetworkImage(img),
+        radius: 42,
+      ),
+    );
+  }
+}
